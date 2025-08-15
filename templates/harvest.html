@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harvest Predictor</title>
+    <link rel="stylesheet" href="../static/harvest/styles.css">
+    <link rel="stylesheet" href="../static/harvest/animation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <div class="logo">🌾</div>
+          <h1>Harvest Predictor</h1>
+          <p class="tagline">Get insights for your agricultural yields</p>
+        </div>
+        
+        <div class="card">
+          <form method="POST" id="harvest-form">
+            <div class="form-group">
+              <label for="crop">Crop Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="crop" name="crop" placeholder="Enter crop name (e.g., wheat, corn)" required>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Predict Harvest</span>
+              <span class="btn-icon">→</span>
+            </button>
+          </form>
+          
+          <div class="result-container">
+            {% if result %}
+              {% if result is string %}
+                <div class="result error">
+                  <div class="result-icon">❌</div>
+                  <div class="result-message">{{ result }}</div>
+                </div>
+              {% else %}
+                <div class="result success">
+                  <div class="result-header">Prediction Results</div>
+                  <div class="result-item">
+                    <div class="result-label">Best Harvesting Method</div>
+                    <div class="result-value">{{ result.method }}</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-label">Optimal Harvest Time</div>
+                    <div class="result-value">{{ result.time }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>Harvest predictions are based on historical data and environmental conditions</p>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="../static/harvest/main.js"></script>
+    <script src="../static/harvest/animation.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Harvest Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌾 Harvest Predictor</h2>
+        <form method="POST">
+            <input type="text" name="crop" placeholder="Enter crop name" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            {% if result is string %}
+                <div class="error">{{ result }}</div>
+            {% else %}
+                <div class="result">
+                    ✅ Best Harvesting Method: {{ result.method }}<br>
+                    📅 Harvest Time: {{ result.time }}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html> -->
+<!-- 
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harvest Predictor</title>
+    <link rel="stylesheet" href="../static/harvest/styles.css">
+    <link rel="stylesheet" href="../static/harvest/animation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="header">
+          <div class="logo">🌾</div>
+          <h1>Harvest Predictor</h1>
+          <p class="tagline">Get insights for your agricultural yields</p>
+        </div>
+        
+        <div class="card">
+          <form method="POST" id="harvest-form">
+            <div class="form-group">
+              <label for="crop">Crop Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="crop" name="crop" placeholder="Enter crop name (e.g., wheat, corn)" required>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Predict Harvest</span>
+              <span class="btn-icon">→</span>
+            </button>
+          </form>
+          
+          <div class="result-container">
+            {% if result %}
+              {% if result is string %}
+                <div class="result error">
+                  <div class="result-icon">❌</div>
+                  <div class="result-message">{{ result }}</div>
+                </div>
+              {% else %}
+                <div class="result success">
+                  <div class="result-header">Prediction Results</div>
+                  <div class="result-item">
+                    <div class="result-label">Best Harvesting Method</div>
+                    <div class="result-value">{{ result.method }}</div>
+                  </div>
+                  <div class="result-item">
+                    <div class="result-label">Optimal Harvest Time</div>
+                    <div class="result-value">{{ result.time }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>Harvest predictions are based on historical data and environmental conditions</p>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script src="../static/harvest/animation.js"></script>
+  </body>
+</html> -->

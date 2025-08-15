@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Harvest Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌾 Harvest Predictor</h2>
+        <form method="POST">
+            <input type="text" name="crop" placeholder="Enter crop name" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            {% if result is string %}
+                <div class="error">{{ result }}</div>
+            {% else %}
+                <div class="result">
+                    ✅ Best Harvesting Method: {{ result.method }}<br>
+                    📅 Harvest Time: {{ result.time }}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

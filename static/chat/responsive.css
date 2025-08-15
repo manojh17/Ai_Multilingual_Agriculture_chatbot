@@ -1,0 +1,145 @@
+/* Responsive Styles */
+
+/* Base styles for mobile devices (less than 576px) */
+@media (max-width: 575.98px) {
+  :root {
+    --font-size-xs: 0.7rem;
+    --font-size-sm: 0.8rem;
+    --font-size-md: 0.9rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.3rem;
+    --font-size-xxl: 1.8rem;
+  }
+  
+  .chatbot-container {
+    padding: 0 var(--space-xs);
+    margin: var(--space-xs) auto;
+    height: calc(100vh - 120px);
+  }
+  
+  .chatbot-header {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .chatbot-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .chatbot-subtitle {
+    font-size: var(--font-size-sm);
+  }
+  
+  .chat-window {
+    padding: var(--space-sm);
+  }
+  
+  .message-container {
+    max-width: 95%;
+  }
+  
+  .home-text {
+    display: none;
+  }
+  
+  .avatar-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mic-button, .speaker-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .welcome-message p {
+    font-size: var(--font-size-md);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .chatbot-container {
+    padding: 0 var(--space-sm);
+    margin: var(--space-sm) auto;
+  }
+  
+  .message-container {
+    max-width: 90%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .chatbot-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .message-container {
+    max-width: 80%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .chatbot-container {
+    max-width: var(--container-sm);
+  }
+  
+  .message-container {
+    max-width: 75%;
+  }
+  
+  .chat-window {
+    padding: var(--space-lg);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .chatbot-container {
+    max-width: var(--container-md);
+  }
+}
+
+/* High-DPI Screens (retina displays) */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+  /* Optimize images for high-resolution displays */
+  .app-bg {
+    background-image: url('https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  }
+}
+
+/* Print styles */
+@media print {
+  .app-bg {
+    display: none;
+  }
+  
+  .chat-controls,
+  .site-header {
+    display: none;
+  }
+  
+  .chatbot-container {
+    margin: 0;
+    padding: 0;
+    height: auto;
+  }
+  
+  .chat-window {
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: transparent;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}

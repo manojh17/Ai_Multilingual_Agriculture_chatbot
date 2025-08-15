@@ -1,0 +1,338 @@
+:root {
+    --primary-color: #2E7D32;
+    --primary-light: #4CAF50;
+    --primary-dark: #1B5E20;
+    --secondary-color: #795548;
+    --accent-color: #FF9800;
+    --background-color: #F5F7FA;
+    --card-bg: #FFFFFF;
+    --text-primary: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --success: #4CAF50;
+    --warning: #FFC107;
+    --error: #F44336;
+    --border-radius: 12px;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+}
+
+.nav-icon {
+    margin-right: 0.5rem;
+}
+
+.form-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    transition: var(--transition);
+}
+
+.form-section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E2E8F0;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.error-message {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--error);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.next-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+}
+
+.next-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.arrow {
+    font-size: 1.2rem;
+}
+
+.recommendation-card {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.crop-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.crop-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.recommendation-item:hover {
+    transform: translateX(5px);
+    background: rgba(76, 175, 80, 0.15);
+}
+
+.recommendation-item .icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.item-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.tips-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #E2E8F0;
+}
+
+.tips-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tips-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tips-section li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tips-section li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.print-btn {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background-color: var(--primary-light);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.print-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.voice-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.voice-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media print {
+    .navbar, .progress-container, form, .button-group, footer, .print-btn {
+        display: none !important;
+    }
+    
+    .recommendation-card {
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: white;
+        font-size: 12pt;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-section {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .next-btn {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}

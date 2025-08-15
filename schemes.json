@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Organic Farming Subsidy",
+    "description": "Subsidy for farmers practicing organic farming",
+    "eligibility": {
+      "organic_farming": true,
+      "land_min": 1,
+      "community": ["SC", "ST"]
+    }
+  },
+  {
+    "name": "KCC Loan Scheme",
+    "description": "Financial support under Kisan Credit Card",
+    "eligibility": {
+      "kcc_holder": true
+    }
+  }
+]

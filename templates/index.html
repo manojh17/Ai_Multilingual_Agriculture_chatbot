@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Agriculture Management</title>
+    <link rel="stylesheet" href="../static/home/variables.css">
+    <link rel="stylesheet" href="../static/home/home.css">
+    <link rel="stylesheet" href="../static/home/animations.css">
+    <link rel="stylesheet" href="../static/home/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="brand-icon">🌱</span>
+            <span class="brand-text">AgroTech</span>
+            <button class="close-sidebar" id="close-sidebar">×</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/soil"><span class="icon">🔬</span> Soil Testing</a></li>
+            <li><a href="/pest-detection"><span class="icon">🐛</span> Pest Detection</a></li>
+            <li><a href="/crop-management"><span class="icon">🌾</span> Crop Management</a></li>
+            <li><a href="/irrigation"><span class="icon">💧</span> Irrigation</a></li>
+            <li><a href="/harvesting"><span class="icon">🚜</span> Harvesting</a></li>
+            <li><a href="/schemes"><span class="icon">📋</span> Government Schemes</a></li>
+        </ul>
+    </nav>
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <button class="navbar-toggler sidebar-toggle" id="sidebar-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            
+            <a class="navbar-brand" href="#">
+                <span class="brand-icon">🌱</span> AgroTech
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="#home"><span class="nav-icon">🏠</span> Home</a></li>
+                    <li><a href="#features"><span class="nav-icon">✨</span> Features</a></li>
+                    <li><a href="#chatbot"><span class="nav-icon">💬</span> Chatbot</a></li>
+                    <li><a href="#about"><span class="nav-icon">ℹ️</span> About</a></li>
+                    
+                </ul>
+            </div>
+              
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <li><a href="#home"><span class="nav-icon">🏠</span> Home</a></li>
+            <li><a href="#features"><span class="nav-icon">✨</span> Features</a></li>
+            <li><a href="/chat"><span class="nav-icon">💬</span> Chatbot</a></li>
+            <li><a href="#about"><span class="nav-icon">ℹ️</span> About</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content" style="z-index: 1;">
+            <h1 class="hero-title">
+                Empowering Farmers with AI
+                <span class="tamil-text">உழவர்களுக்கு உதவும் நவீன தொழில்நுட்பம்</span>
+            </h1>
+            
+            <p class="hero-subtitle">Smart farming solutions for a sustainable future</p>
+            <a href="#features" class="cta-button">Explore Agro Services</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="feature-grid">
+                <a href="/soil">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Soil Testing</h3>
+                    <p>Advanced soil analysis for optimal crop growth</p>
+                </div>
+                </a>
+                <a href="/reports/farmer1">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🐛</div>
+                    <h3>Pest Detection</h3>
+                    <p>AI-powered pest identification and control</p>
+                </div>
+                </a>
+               
+                <a href="/irrigation">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">💧</div>
+                    <h3>Smart Irrigation</h3>
+                    <p>Water management and scheduling</p>
+                </div>
+                </a>
+                <a href="/schemes">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">📋</div>
+                    <h3>Schemes</h3>
+                    <p>Government scheme eligibility checker</p>
+                </div>
+                </a>
+
+                <a href="/harvest">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">📋</div>
+                    <h3>harvest</h3>
+                    <p>Harvest</p>
+                </div>
+                </a>
+        </div>
+            </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section class="chatbot" id="chatbot">
+        <div class="container">
+            <div class="chatbot-content">
+                <div class="chatbot-text">
+                    <h2>AI Farming Assistant</h2>
+                    <p>Get instant answers to your farming questions</p>
+                    <a href="/chat">
+                    <button class="chat-button" id="start-chat" >
+                        <span class="icon">💬</span> Start Chat
+                    </button>
+                    </a>
+                </div>
+                <div class="chatbot-image">
+                    <img src="https://images.pexels.com/photos/2382904/pexels-photo-2382904.jpeg" alt="Farmer using smartphone">
+                </div>
+            </div>
+        </div>
+        <button class="voice-assistant" id="voice-assistant">
+            <span class="icon">🎤</span>
+        </button>
+    </section>
+
+    <!-- Chat Interface -->
+    <div class="chat-interface" id="chat-interface">
+        <div class="chat-header">
+            <h3>AI Farming Assistant</h3>
+            <button class="close-chat" id="close-chat">×</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                Hello! I'm your AI farming assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-message" placeholder="Type your question here...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How accurate is the soil testing?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Our soil testing is 95% accurate, using advanced laboratory methods and AI analysis. The system can detect soil nutrients, pH levels, and mineral composition, providing detailed recommendations for soil improvement.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Can I use the app offline?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, basic features work offline. The app stores essential data locally on your device, allowing you to access crop information, historical data, and recommendations even without an internet connection. Sync when connected for updates.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        How do I apply for schemes?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Browse available schemes, check eligibility, and apply directly through the app. Our system simplifies the application process by pre-filling your information and providing step-by-step guidance to complete required documentation.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        What crops are supported by the system?
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Our system supports over 50 different crops including rice, wheat, cotton, sugarcane, pulses, oilseeds, vegetables, and fruits. The database is regularly updated with new crop varieties and cultivation techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#chatbot">Chatbot</a>
+                    <a href="#about">About</a>
+                    <a href="#privacy">Privacy Policy</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon">𝕏</a>
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📱</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AgroTech | Empowering Farmers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/home/translate.js"></script>
+    <script src="../static/home/sidebar.js"></script>
+    <script src="../static/home/accordion.js"></script>
+    <script src="../static/home/voice.js"></script>
+    <script src="../static/home/chatbot.js"></script>
+    <script src="../static/home/animations.js"></script>
+    <script src="../static/home/main.js"></script>
+   <!-- Google Translate Initialization -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ta,hi,bn,te,kn,ml,mr,pa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript" 
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+</body>
+</html>
+</html> -->

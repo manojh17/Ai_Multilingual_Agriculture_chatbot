@@ -1,0 +1,770 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Fertilizer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            margin-top: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fertilizer Prediction</h2>
+        <form action="/soiltesting" method="post">
+            <label for="Temparature">Temperature (°C):</label>
+            <input type="number" step="0.1" name="Temparature" required>
+
+            <label for="Humidity">Humidity (%):</label>
+            <input type="number" step="0.1" name="Humidity" required>
+
+            <label for="Moisture">Moisture (%):</label>
+            <input type="number" step="0.1" name="Moisture" required>
+
+            <label for="Soil_Type">Soil Type:</label>
+            <select name="Soil_Type" required>
+                <option value="Sandy">Sandy</option>
+                <option value="Loamy">Loamy</option>
+                <option value="Black">Black</option>
+                <option value="Red">Red</option>
+                <option value="Clayey">Clayey</option>
+                <option value="Peaty">Peaty</option>
+            </select>
+
+            <label for="Crop_Type">Crop Type:</label>
+            <select name="Crop_Type" required>
+                <option value="Barley">Barley</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Ground Nuts">Ground Nuts</option>
+                <option value="Maize">Maize</option>
+                <option value="Millets">Millets</option>
+                <option value="Oil seeds">Oil seeds</option>
+                <option value="Paddy">Paddy</option>
+                <option value="Pulses">Pulses</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Tobacco">Tobacco</option>
+                <option value="Wheat">Wheat</option>
+            </select>
+
+            <label for="Nitrogen">Nitrogen (N):</label>
+            <input type="number" name="Nitrogen" required>
+
+            <label for="Potassium">Potassium (K):</label>
+            <input type="number" name="Potassium" required>
+
+            <label for="Phosphorous">Phosphorous (P):</label>
+            <input type="number" name="Phosphorous" required>
+
+            <input type="submit" value="Predict Fertilizer">
+        </form>
+
+        {% if fertilizer %}
+            <div class="result">
+                Recommended Fertilizer: {{ fertilizer }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Prediction</title>
+    <link rel="stylesheet" href="../static/soil-test/soiltest.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+
+     <title>Tamil Mannvalam</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="https://tnagriculture.in/mannvalam/assets/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://tnagriculture.in/mannvalam/assets/bootstrap4/css/bootstrap.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://tnagriculture.in/mannvalam/assets/css/style.css">
+  <script src="https://tnagriculture.in/mannvalam/assets/bootstrap4/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="https://tnagriculture.in/mannvalam/assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdeli+*vr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  
+
+  <style>
+    .flexi{
+        display: flex;
+        align-items: center;
+        margin-left: 25%;
+    }
+</style>
+</head>
+<body>
+
+  
+
+   <div id="app"></div>
+
+  <script>
+    document.querySelector('#app').innerHTML = `
+      <div class="container">
+        <!-- Animated Background -->
+        <div class="bg-animation">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+          <div class="floating-shape shape-4"></div>
+        </div>
+
+        <!-- Header Section -->
+        <header class="header">
+          <div class="header-content">
+            <div class="logo-section">
+              <div class="logo">🌾</div>
+              <h1 class="title">Fertilizer Predictor</h1>
+            </div>
+            <p class="subtitle">AI-powered fertilizer recommendations for optimal crop growth</p>
+          </div>
+          <div class="header-decoration"></div>
+        </header>
+
+        <!-- Main Form -->
+        <div class="form-container">
+          <form class="prediction-form" id="fertilizerForm">
+            <div class="form-grid">
+              <!-- Environment Section -->
+              <div class="form-section">
+                <div class="section-header">
+                  <div class="section-icon">🌦️</div>
+                  <h3>Environmental Conditions</h3>
+                </div>
+                <div class="input-group">
+                  <label for="temperature">Temperature (°C)</label>
+                  <div class="slider-container">
+                    <input type="range" id="temperature" name="Temparature" min="0" max="50" step="0.1" value="25" class="slider" required>
+                    <div class="slider-value" id="temperatureValue">25°C</div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="humidity">Humidity (%)</label>
+                  <div class="slider-container">
+                    <input type="range" id="humidity" name="Humidity" min="0" max="100" step="0.1" value="50" class="slider" required>
+                    <div class="slider-value" id="humidityValue">50%</div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="moisture">Moisture (%)</label>
+                  <div class="slider-container">
+                    <input type="range" id="moisture" name="Moisture" min="0" max="100" step="0.1" value="50" class="slider" required>
+                    <div class="slider-value" id="moistureValue">50%</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Soil & Crop Section -->
+              <div class="form-section">
+                <div class="section-header">
+                  <div class="section-icon">🌱</div>
+                  <h3>Soil & Crop Details</h3>
+                </div>
+                <div class="input-group">
+                  <label for="soilType">Soil Type</label>
+                  <select id="soilType" name="Soil_Type" required>
+                    <option value="" disabled selected>Select Soil Type</option>
+                    <option value="Sandy">Sandy</option>
+                    <option value="Loamy">Loamy</option>
+                    <option value="Black">Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Clayey">Clayey</option>
+                    <option value="Peaty">Peaty</option>
+                  </select>
+                  <span class="input-focus"></span>
+                </div>
+                <div class="input-group">
+                  <label for="cropType">Crop Type</label>
+                  <select id="cropType" name="Crop_Type" required>
+                    <option value="" disabled selected>Select Crop Type</option>
+                    <option value="Barley">Barley</option>
+                    <option value="Cotton">Cotton</option>
+                    <option value="Ground Nuts">Ground Nuts</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Millets">Millets</option>
+                    <option value="Oil seeds">Oil seeds</option>
+                    <option value="Paddy">Paddy</option>
+                    <option value="Pulses">Pulses</option>
+                    <option value="Sugarcane">Sugarcane</option>
+                    <option value="Tobacco">Tobacco</option>
+                    <option value="Wheat">Wheat</option>
+                  </select>
+                  <span class="input-focus"></span>
+                </div>
+              </div>
+
+              <!-- Nutrients Section -->
+              <div class="form-section">
+                <div class="section-header">
+                  <div class="section-icon">🧬</div>
+                  <h3>Nutrient Levels</h3>
+                </div>
+                <div class="input-group">
+                  <label for="nitrogen">Nitrogen (N)</label>
+                  <div class="slider-container">
+                    <input type="range" id="nitrogen" name="Nitrogen" min="0" max="150" value="75" class="slider" required>
+                    <div class="slider-value" id="nitrogenValue">75</div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="potassium">Potassium (K)</label>
+                  <div class="slider-container">
+                    <input type="range" id="potassium" name="Potassium" min="0" max="150" value="75" class="slider" required>
+                    <div class="slider-value" id="potassiumValue">75</div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="phosphorous">Phosphorous (P)</label>
+                  <div class="slider-container">
+                    <input type="range" id="phosphorous" name="Phosphorous" min="0" max="150" value="75" class="slider" required>
+                    <div class="slider-value" id="phosphorousValue">75</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="submit-section">
+              <button type="submit" class="submit-btn">
+                <span class="btn-text">🌱 Predict Fertilizer</span>
+                <span class="btn-icon">🚀</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Results Section -->
+          <div class="results-container" id="resultsContainer" style="display: none;">
+            <div class="results-content">
+              <div class="results-icon">✅</div>
+              <h3>Recommended Fertilizer</h3>
+              <div class="fertilizer-name" id="fertilizerResult">N/A</div>
+              <p class="results-description">This fertilizer will optimize your crop yield based on the provided soil and environmental conditions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <p>Made with 💚 for sustainable farming</p>
+            <div class="footer-brand">Tamil Mannvalam</div>
+          </div>
+        </footer>
+      </div>
+    `;
+
+    // Update slider values
+    function updateSliderValue(sliderId, valueId, suffix = '') {
+      const slider = document.getElementById(sliderId);
+      const valueDisplay = document.getElementById(valueId);
+      slider.addEventListener('input', () => {
+        valueDisplay.textContent = slider.value + suffix;
+      });
+    }
+
+    updateSliderValue('temperature', 'temperatureValue', '°C');
+    updateSliderValue('humidity', 'humidityValue', '%');
+    updateSliderValue('moisture', 'moistureValue', '%');
+    updateSliderValue('nitrogen', 'nitrogenValue');
+    updateSliderValue('potassium', 'potassiumValue');
+    updateSliderValue('phosphorous', 'phosphorousValue');
+
+    // Form submission
+    document.getElementById('fertilizerForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const submitBtn = document.querySelector('.submit-btn');
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="btn-text">🔄 Predicting...</span><span class="btn-icon">⏳</span>';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch("/soil_testing", {
+          method: "POST",
+          body: formData
+        });
+        const data = await response.json();
+        const result = data.fertilizer || "No prediction";
+        document.getElementById('fertilizerResult').textContent = result;
+        document.getElementById('resultsContainer').style.display = 'block';
+        document.getElementById('resultsContainer').scrollIntoView({ behavior: "smooth" });
+      } catch (err) {
+        document.getElementById('fertilizerResult').textContent = "Error: " + err.message;
+        document.getElementById('resultsContainer').style.display = 'block';
+      }
+
+      submitBtn.innerHTML = originalHTML;
+      submitBtn.disabled = false;
+    });
+
+    // Animation delay for form sections
+    document.querySelectorAll('.form-section').forEach((section, index) => {
+      section.style.animationDelay = `${index * 0.2}s`;
+    });
+  </script>
+    </div>
+
+    <div id="layout">
+    <div class="preloader"></div>
+    <p class="preload-tt">Soil Testing</p>
+  </div>
+  <header ng-controller="headerCtrl" ng-init="lang='en';">
+   
+  </header>
+
+    <script>
+    var base_url = 'https://tnagriculture.in/mannvalam/';
+    var langu = 'en';
+
+    window.onscroll = function() {
+      myFunction()
+    };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+    function scrollDiv(id) {
+      document.getElementById(id).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  </script><div ng-controller="bannerCtrl" ng-init="lang='en';">
+
+<!-- banner=================================== -->
+<div class="pie-dash" ng-controller="bannerCtrl" ng-init="lang='en';" >
+<div class="flexi">
+<div class="one">
+	<div class="container mt-5">
+	<h5 class="pie-dash-tt" id='piedash'>
+    {% if lang == 'tm' %} 
+        மாவட்ட மண் வள நிலவரம் 
+    {% else %} 
+        District Soil Health Dashboard
+    {% endif %}
+</h5>
+
+		<div class="container bg-grey box-shapes-round" ></div>
+			<div class="row pt-4">
+				<div class="col-md-12 col-lg-12 col-sm-12 col-12">
+					<div>
+						<h5 class="text-center text-success" style="font-weight: bold;">
+						{{ 'ஊட்டச்சத்து நிலை' if lang == 'tm' else 'Nutrient Status' }}
+
+						</h5>
+						<form>
+							<label>District</label>
+							<select class="form-inputs-man" id="select_id" onchange="getDistict(this.value)">
+																	<option value="610" style="background: #67c587; color:#fff">Ariyalur</option>
+																	<option value="730" style="background: #67c587; color:#fff">CHENGALPATTU</option>
+																	<option value="568" >CHENNAI</option>
+																	<option value="569" style="background: #67c587; color:#fff">COIMBATORE</option>
+																	<option value="570" style="background: #67c587; color:#fff">CUDDALORE</option>
+																	<option value="571" style="background: #67c587; color:#fff">DHARMAPURI</option>
+																	<option value="572" style="background: #67c587; color:#fff">DINDIGUL</option>
+																	<option value="573" style="background: #67c587; color:#fff">ERODE</option>
+																	<option value="729" style="background: #67c587; color:#fff">KALLAKURICHI</option>
+																	<option value="574" style="background: #67c587; color:#fff">KANCHIPURAM</option>
+																	<option value="575" style="background: #67c587; color:#fff">KANNIYAKUMARI</option>
+																	<option value="576" style="background: #67c587; color:#fff">KARUR</option>
+																	<option value="577" style="background: #67c587; color:#fff">KRISHNAGIRI</option>
+																	<option value="578" style="background: #67c587; color:#fff">MADURAI</option>
+																	<option value="735" style="background: #67c587; color:#fff">Mayiladuthurai</option>
+																	<option value="579" style="background: #67c587; color:#fff">NAGAPATTINAM</option>
+																	<option value="580" style="background: #67c587; color:#fff">NAMAKKAL</option>
+																	<option value="581" style="background: #67c587; color:#fff">PERAMBALUR</option>
+																	<option value="582" style="background: #67c587; color:#fff">PUDUKKOTTAI</option>
+																	<option value="583" style="background: #67c587; color:#fff">RAMANATHAPURAM</option>
+																	<option value="731" style="background: #67c587; color:#fff">Ranipet</option>
+																	<option value="584" style="background: #67c587; color:#fff">SALEM</option>
+																	<option value="585" style="background: #67c587; color:#fff">SIVAGANGA</option>
+																	<option value="733" style="background: #67c587; color:#fff">TENKASI</option>
+																	<option value="586" style="background: #67c587; color:#fff">THANJAVUR</option>
+																	<option value="588" style="background: #67c587; color:#fff">THENI</option>
+																	<option value="587" style="background: #67c587; color:#fff">THE NILGIRIS</option>
+																	<option value="589" style="background: #67c587; color:#fff">THIRUVALLUR</option>
+																	<option value="590" style="background: #67c587; color:#fff">THIRUVARUR</option>
+																	<option value="591" style="background: #67c587; color:#fff">TIRUCHIRAPPALLI</option>
+																	<option value="592" style="background: #67c587; color:#fff">TIRUNELVELI</option>
+																	<option value="732" style="background: #67c587; color:#fff">Tirupathur</option>
+																	<option value="634" style="background: #67c587; color:#fff">TIRUPPUR</option>
+																	<option value="593" style="background: #67c587; color:#fff">TIRUVANNAMALAI</option>
+																	<option value="594" style="background: #67c587; color:#fff">TUTICORIN</option>
+																	<option value="595" style="background: #67c587; color:#fff">VELLORE</option>
+																	<option value="596" style="background: #67c587; color:#fff">VILLUPURAM</option>
+																	<option value="597" style="background: #67c587; color:#fff">VIRUDHUNAGAR</option>
+															</select>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+						<div class="row">
+							<div class="col-10 p-r">
+                                <p class="text-center pd-lt">{{ 'தழைச்சத்து' if lang == 'tm' else 'Nitrogen' }}</p>
+
+							</div>
+							<div class="col-2 ">
+								<p class="round-simple pie-bg-color-1">N</p>
+							</div>
+							<div class="referral-box p-a">
+								<ul>
+									<li>{% if lang == 'tm' %}நிலை{% else %}Status{% endif %}</li>
+
+									<li>{{ 'குறைவு' if lang == 'tm' else 'Low' }}</li>
+
+
+										< 113 Kg/ac </li>
+									<li>{{ 'மத்திமம்' if lang == 'tm' else 'Medium' }} 113 - 180 Kg/ac </li>
+
+									<li>{{ 'அதிகம்' if lang == 'tm' else 'High' }} > 180 Kg/ac</li>
+
+								</ul>
+							</div>
+						</div>
+						<div id="chartdiv2" style="margin-top: 2rem;"></div>
+
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+						<div class="row">
+							<div class="col-10 p-r">
+								<p class="text-center pd-lt">{{ 'மணிச்சத்து' if lang == 'tm' else 'Phosphorus' }}</p>
+
+							</div>
+							<div class="col-2">
+								<p class="round-simple pie-bg-color-2">P</p>
+							</div>
+							<div class="referral-box p-a">
+								<ul>
+									<li>{{ 'நிலை' if lang == 'tm' else 'Status' }}</li>
+
+									<li>{{ 'குறைவு' if lang == 'tm' else 'Low' }}
+
+										< 4.5 Kg/ac </li>
+									<li>{{ 'மத்திமம்' if lang == 'tm' else 'Medium' }} 4.5 - 9 Kg/ac </li>
+
+									<li>{{ 'அதிகம்' if lang == 'tm' else 'High' }} > 9 Kg/ac</li>
+
+								</ul>
+							</div>
+						</div>
+						<div id="chartdiv3" style="margin-top: 2rem;"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+						<div class="row">
+							<div class="col-10 p-r ">
+								<p class="text-center pd-lt">{{ 'சாம்பல்சத்து' if lang == 'tm' else 'Potassium' }}</p>
+
+							<div class="col-2 ">
+								<p class="round-simple pie-bg-color-3">K</p>
+							</div>
+							<div class="referral-box p-a">
+								<ul>
+									<li>{{ 'நிலை' if lang == 'tm' else 'Status' }}</li>
+
+									<li>{{ 'குறைவு' if lang == 'tm' else 'Low' }}</li>
+									<
+
+										< 48 Kg/ac </li>
+									<li>{{ 'மத்திமம்' if lang == 'tm' else 'Medium' }} 48 - 113 Kg/ac </li>
+
+									<li>{{ 'அதிகம்' if lang == 'tm' else 'High' }} > 113 Kg/ac</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div id="chartdiv4" style="margin-top: 2rem;"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+						<div class="row">
+							<div class="col-10 p-r ">
+								<p class="text-center pd-lt"> {{ 'கரிம கார்பன்' if lang == 'tm' else 'Organic Carbon' }}</p>
+
+							</div>
+							<div class="col-2 ">
+								<p class="round-simple pie-bg-color-4">OC</p>
+							</div>
+							<div class="referral-box p-a">
+								<ul>
+									<li>{{ 'நிலை' if lang == 'tm' else 'Status' }}</li>
+
+									<li>{{ 'குறைவு' if lang == 'tm' else 'Low' }}</li>
+
+										< 0.5 % </li>
+									<li>{{ 'மத்திமம்' if lang == 'tm' else 'Medium' }} 0.5 - 0.75 % </li>
+
+
+
+									<li>{% if lang == 'tm' %}அதிகம்{% else %}High{% endif %} > 0.75 %</li>
+
+								</ul>
+							</div>
+						</div>
+						<div id="chartdiv8" style="margin-top: 2rem;"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+						<div class="row">
+							<div class="col-10 p-r">
+								<p class="text-center pd-lt">{{ 'களர் அமில நிலை' if lang == 'tm' else 'Acidic/Alkalinity' }}
+</p>
+							</div>
+							<div class="col-2">
+								<p class="round-simple pie-bg-color-4">pH</p>
+							</div>
+							<div class="referral-box p-a">
+								<ul>
+									<li>{{ 'நிலை' if lang == 'tm' else 'Status' }}</li>
+
+									<li>{{ 'அமிலம்' if lang == 'tm' else 'Acidic' }} < 6.0 </li>
+									<li>{{ 'நடுநிலை' if lang == 'tm' else 'Neutral' }} 6.0 - 8.5</li>
+									<li>{{ 'காரத்தன்மை' if lang == 'tm' else 'Alkaline' }} > 8.5</li>
+
+								</ul>
+							</div>
+						</div>
+						<div id="chartdiv5" style="margin-top: 2rem;"></div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-sm-12 ">
+					<div class="card bg-white mt-2 mb-4">
+  <div class="row">
+    <div class="col-10 p-r">
+      <p class="text-center pd-lt">{{ 'உப்பின் நிலை' if lang == 'tm' else 'Electrical Conductivity' }}</p>
+    </div>
+    <div class="col-2">
+      <p class="round-simple pie-bg-color-4">EC</p>
+    </div>
+    <div class="referral-box p-a">
+      <ul>
+        <li>{{ 'பரிந்துரை மதிப்பு' if lang == 'tm' else 'Referral dS/m' }}</li>
+        <li>{{ 'நன்று' if lang == 'tm' else 'Good' }} &lt; 1 </li>
+        <li>{{ 'மத்திமம்' if lang == 'tm' else 'Medium' }} 1 - 2</li>
+        <li>{{ 'ஏயற்றதல்ல' if lang == 'tm' else 'No Match' }} &gt; 2</li>
+      </ul>
+    </div>
+  </div>
+  <div id="chartdiv9" style="margin-top: 2rem;"></div>
+</div>
+
+				</div>
+			</div>
+			<!--  bar chart-->
+			<div class="row">
+				<div class="col-md-12 col-lg-12 col-sm-12 col-12">
+
+					<div class="card p-5 bar-chart mob-scroll">
+						<h6 class="text-center" style="color: #000;font-size: 13px;font-weight: bold;margin-top: -4px;">
+							{{ 'இரண்டாம் மற்றும் நுண்ணூட்டச் சத்து நிலை' if lang == 'tm' else 'Secondary and Micronutrient Status' }}
+
+						</h6>
+						<div id="chartdiv6"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+
+
+							</div>
+							<!-- table column -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- tn map=========== -->
+	</div>
+</div>
+</div>
+
+
+	<!-- =======================tn map script================= -->
+	<script>
+		function cityName(distric) {
+			$.ajax({
+				type: 'post',
+				url: 'fetch.php?distric=' + distric, //This line
+				dataType: 'json'
+			});
+			// alert(distric);
+		}
+	</script>
+	<script>
+		$(document).ready(function() {
+			$.ajax({
+				type: 'get',
+				url: "https://tnagriculture.in/mannvalam/Welcome/tnmap_list",
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+					if (data.length > 0) {
+						for (var i = 0; i < data.length; i++) {
+							let performance;
+							let distric_work = Math.floor(Math.random() * 100); //data[i].percentage;
+							let distric_name = data[i].District_Name;
+							if (distric_work == 76 || distric_work >= 76 && distric_work <= 100) {
+								performance = "good";
+							}
+							if (distric_work == 51 || distric_work >= 51 && distric_work <= 75) {
+								performance = "normal";
+							}
+							if (distric_work == 26 || distric_work >= 26 && distric_work <= 50) {
+								performance = "low";
+							}
+							if (distric_work == 0 || distric_work >= 0 && distric_work <= 25) {
+								performance = "bad";
+							}
+							let color;
+							var distric_performance = performance;
+							switch (distric_performance) {
+								case "good":
+									//color = "#12a04a";//green
+									color = "#16B566"; //light green
+									break;
+								case "normal":
+									//color = "#80bd00";//light green
+									color = "#16B566"; //light green
+									break;
+								case "low":
+									//color = "#f8991b";//yellow
+									color = "#16B566"; //light green
+									break;
+								case "bad":
+									//color = "#d6441d";//red
+									color = "#16B566"; //light green
+							}
+							const pathId = $("#" + distric_name);
+							pathId.attr("fill", color);
+						}
+					}
+				}
+			});
+		});
+	</script>
+	
+
+	<!-- Resources pie charts bar chart -->
+	<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+	<script src="https://tnagriculture.in/mannvalam/assets/js/pieandbar_charts.js"></script>
+	
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+</style>
+<!-- popup -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+<!-- Large modal -->
+<style>
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 50vw;
+}
+</style>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+	   <div style="text-align:center; height: 550px;overflow-y: scroll;overflow-x:hidden;position: relative;">
+	      <img src="https://tnagriculture.in/mannvalam/assets/img/tnmap.jpg" class='popuptn-map'>
+	  </div>
+	  <a href="https://tnagriculture.in/mannvalam/assets/img/tnmap.pdf" class="Download-popup-link" download>Download PDF</a>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.12/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://tnagriculture.in/mannvalam/assets/js/myapp.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://tnagriculture.in/mannvalam/assets/css/allcharts.css">
+<!-- responsive mob -->
+<link rel="stylesheet" type="text/css" href="https://tnagriculture.in/mannvalam/assets/css/responsive.css">
+
+<script src="https://tnagriculture.in/mannvalam/assets/js/zoomin_zoomout.js"></script>
+<script>
+  $('#layout').delay(1000).fadeOut(400);
+</script>
+    <script src="../static/soil-test/soiltest.js"></script>
+</body>
+</html>

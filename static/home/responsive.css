@@ -1,0 +1,242 @@
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .tamil-text {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-links {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .chatbot-content {
+        flex-direction: column;
+    }
+    
+    .chatbot-text {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .tamil-text {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .tamil-text {
+        font-size: 1.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .chat-interface {
+        width: 300px;
+        height: 400px;
+        bottom: var(--spacing-lg);
+        right: var(--spacing-lg);
+    }
+    
+    .accordion-header {
+        font-size: 1rem;
+        padding: var(--spacing-md);
+    }
+    
+    .accordion-content {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+    }
+    
+    .hero-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .tamil-text {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .chat-interface {
+        width: calc(100% - 20px);
+        height: 350px;
+        bottom: var(--spacing-md);
+        right: 10px;
+        left: 10px;
+    }
+    
+    .voice-assistant {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .social-links {
+        margin-top: var(--spacing-md);
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .tamil-text {
+        font-size: 1.1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+    
+    .chat-interface {
+        height: 300px;
+    }
+}
+
+/* For extra small devices */
+@media (max-width: 320px) {
+    .hero-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+    
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .sidebar,
+    .voice-assistant,
+    .chat-interface,
+    .chat-button,
+    .translator-wrapper {
+        display: none !important;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .hero {
+        height: auto;
+        background: none;
+        color: black;
+    }
+    
+    .hero-title,
+    .hero-subtitle {
+        color: black;
+    }
+    
+    .cta-button {
+        display: none;
+    }
+    
+    .feature-card,
+    .accordion-item {
+        box-shadow: none;
+        border: 1px solid #eee;
+    }
+    
+    footer {
+        background-color: white;
+        color: black;
+        border-top: 1px solid #eee;
+    }
+    
+    .footer-links a,
+    .social-icon {
+        color: black;
+    }
+}

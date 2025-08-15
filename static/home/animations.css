@@ -1,0 +1,233 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-up {
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.slide-left {
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.slide-right {
+    animation: slideInRight 0.8s ease forwards;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.float {
+    animation: floating 3s ease-in-out infinite;
+}
+
+.rotate {
+    animation: rotate 5s linear infinite;
+}
+
+/* Applied Animations */
+.hero-title {
+    animation: slideInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    animation: slideInUp 1s ease forwards 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.cta-button {
+    opacity: 0;
+    animation: slideInUp 1s ease forwards 0.6s;
+    animation-fill-mode: forwards;
+}
+
+/* Animation for Feature Cards */
+[data-aos="fade-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-aos="fade-up"][data-aos-delay="100"] {
+    transition-delay: 0.1s;
+}
+
+[data-aos="fade-up"][data-aos-delay="200"] {
+    transition-delay: 0.2s;
+}
+
+[data-aos="fade-up"][data-aos-delay="300"] {
+    transition-delay: 0.3s;
+}
+
+[data-aos="fade-up"][data-aos-delay="400"] {
+    transition-delay: 0.4s;
+}
+
+[data-aos="fade-up"][data-aos-delay="500"] {
+    transition-delay: 0.5s;
+}
+
+/* Chat animation effects */
+.message {
+    opacity: 0;
+    animation: slideInUp 0.3s ease forwards;
+}
+
+.voice-assistant {
+    position: relative;
+}
+
+.voice-assistant.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2px solid var(--error-color);
+    animation: pulse 1.5s infinite;
+}
+
+/* Chatbot Panel */
+.chat-button .icon,
+.voice-assistant .icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.chat-button:hover .icon,
+.voice-assistant:hover .icon {
+    animation: pulse 1s infinite;
+}
+
+/* Feature cards hover effect */
+.feature-card:hover .feature-icon {
+    animation: pulse 1s infinite;
+}
+
+/* Section transitions */
+.section-title {
+    opacity: 0;
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* Navbar scroll effect */
+.navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: var(--primary-dark);
+    box-shadow: var(--shadow-md);
+}
+
+/* Mobile menu toggle animation */
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Sidebar toggle animation */
+.sidebar-toggle.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.sidebar-toggle.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.sidebar-toggle.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

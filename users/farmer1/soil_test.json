@@ -1,0 +1,10 @@
+{
+    "Temparature": 22.0,
+    "Humidity": 22.0,
+    "Moisture": 22.0,
+    "Soil_Type": "Clayey",
+    "Nitrogen": 22.0,
+    "Potassium": 22.0,
+    "Phosphorous": 22.0,
+    "Selected_Crop": "Wheat"
+}

@@ -1,0 +1,17 @@
+Flask
+Werkzeug
+SpeechRecognition
+pyttsx3
+langdetect
+googletrans
+edge-tts
+python-dotenv
+google-generativeai
+torch
+torchvision
+Pillow
+joblib
+numpy
+pandas
+cython
+dotenv  

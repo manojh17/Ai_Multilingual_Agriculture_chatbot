@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Government Scheme Recommendations | Agricultural Portal</title>
+    <link rel="stylesheet" href="../static/schemes/main.css">
+    <link rel="stylesheet" href="../static/schemes/responsive.css">
+    <link rel="stylesheet" href="../static/schemes/animations.css">
+    <link rel="stylesheet" href="../static/schemes/cards.css">
+    <style>
+      .sccccc{
+        margin-left: 30%;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="container">
+          <div class="header-content">
+            <div class="logo">
+              <h1></h1>
+            </div>
+            <nav>
+              <a href="/" class="home-btn">
+                <span class="en">Home</span>
+                <span class="ta">முகப்பு</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container">
+            <h2 class="page-title">
+              <span class="en">Government Scheme Recommendations</span>
+              <span class="ta">அரசு திட்ட பரிந்துரைகள்</span>
+            </h2>
+            <p class="intro">
+              <span class="en">Discover government schemes, subsidies, and financial aids tailored to your farming profile.</span>
+              <span class="ta">உங்கள் விவசாய் விவரங்களுக்கு ஏற்ப அரசு திட்டங்களைப் பெறுங்க.</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="user-profile">
+          <div class="container">
+            <div class="profile-card">
+              <h3>
+                <span class="en">Your Farming Profile</span>
+                <span class="ta">உங்கள் விவசாய் விவரம்</span>
+              </h3>
+              <div class="profile-details">
+                <div class="profile-item">
+                  <span class="label en">Land Size:</span>
+                  <span class="label ta">நில அளவு:</span>
+                  <span class="value">{{ land_size }}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="label en">District:</span>
+                  <span class="label ta">மாவட்டம்:</span>
+                  <span class="value">{{ district }}</span>
+                </div>
+                <div class="profile-item">
+                  <span class="label en">Crop Type:</span>
+                  <span class="label ta">பயிர் வகை:</span>
+                  <span class="value">{{ crop_type }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+         <!-- Hero Section -->
+    <div class="text-center text-white bg-success p-5 sccccc">
+        <h1 class="display-5">Empowering Farmers with Financial Aid</h1>
+        <p class="lead">Check your eligibility for government schemes</p>
+    </div>
+
+    <!-- Eligibility Form -->
+    <div class="container my-5">
+        <h3 class="text-center mb-4">🔍 Check Your Eligibility</h3>
+        <form id="eligibilityForm" class="mb-3">
+            <input type="text" name="name" class="form-control mb-3" placeholder="Enter your name" required>
+            <button type="submit" class="btn btn-success w-100">Check Eligibility</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+
+    <script>
+        document.getElementById("eligibilityForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = this.name.value.trim();
+
+            fetch("/check_eligibility", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name })
+            })
+            .then(res => res.json())
+            .then(data => {
+                let html = "";
+                if (data.length && data[0].scheme === "All" && !data[0].eligible) {
+                    html = `<div class="alert alert-danger">❌ Farmer "${name}" not found.</div>`;
+                } else {
+                    html = "<h4>✅ Eligibility Results:</h4><ul class='list-group'>";
+                    data.forEach(item => {
+                        html += `<li class='list-group-item'>
+                            <strong>${item.scheme}:</strong> 
+                            ${item.eligible ? "✅ Eligible" : "❌ Not Eligible"} 
+                            <span class="text-muted">(${item.reason})</span>
+                        </li>`;
+                    });
+                    html += "</ul>";
+                }
+                document.getElementById("result").innerHTML = html;
+            });
+        });
+    </script>
+    <div class="container">
+        <h2 class="mb-4 text-center">Recommended Schemes for You</h2>
+        <div class="row">
+            {% for scheme in schemes %}
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3">
+                    <div class="card-body">
+                        <h5 class="scheme-title">{{ scheme.name }}</h5>
+                        <p class="scheme-description">{{ scheme.description }}</p>
+
+                        <!-- View Details Modal Trigger -->
+                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#detailsModal{{ loop.index }}">
+                            View Details
+                        </button>
+
+                        <!-- Apply Button -->
+                        <button class="btn btn-success btn-sm" onclick="applyScheme('{{ scheme.name }}', this)">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Modal -->
+            <div class="modal fade" id="detailsModal{{ loop.index }}" tabindex="-1" aria-labelledby="detailsModalLabel{{ loop.index }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ scheme.name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Description:</strong> {{ scheme.description }}</p>
+                            <p><strong>Eligibility:</strong></p>
+                            <ul>
+                                {% for key, value in scheme.eligibility.items() %}
+                                    <li><strong>{{ key|capitalize }}:</strong> {{ value }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap & JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function applyScheme(schemeName, btn) {
+            fetch(`/apply_scheme/${encodeURIComponent(schemeName)}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert(data.message);
+                    btn.innerText = "Applied";
+                    btn.classList.remove("btn-success");
+                    btn.classList.add("btn-secondary");
+                    btn.disabled = true;
+                }
+            });
+        }
+    </script>
+
+        <section class="all-schemes">
+          <div class="container">
+            <h3>
+              <span class="en">All Available Government Schemes</span>
+              <span class="ta">அனைத்து அரசு திட்டங்கள்</span>
+            </h3>
+            <ul id="scheme-list" class="scheme-list"></ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container">
+          <p>&copy; 2025 AgriConnect. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Fetch and display all schemes
+      fetch('/api/all_schemes')
+        .then(response => response.json())
+        .then(data => {
+          const list = document.getElementById('scheme-list');
+          data.forEach(scheme => {
+            const li = document.createElement('li');
+            li.className = 'scheme-item';
+            li.innerHTML = `<strong>${scheme.name}</strong>: ${scheme.description}`;
+            list.appendChild(li);
+          });
+        })
+        .catch(error => console.error('Error loading schemes:', error));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Irrigation Recommendation</title>
+    <link type="stylesheet" href="../static/irrigation/styles.css">
+</head>
+<body>
+    <h1>🌾 Irrigation Recommendation System</h1>
+    
+<form method="POST" action="/irrigation">
+
+  <select name="crop" required>
+    <option value="" disabled selected>Select Crop</option>
+            <option value="Pulses">Pulses</option>
+            <option value="Rice">Rice</option>
+            <option value="Tomato">Tomato</option>
+            <option value="Tea">Tea</option>
+            <option value="Tapioca">Tapioca</option>
+            <option value="Mango">Mango</option>
+            <option value="Okra">Okra</option>
+            <option value="Chili">Chili</option>
+            <option value="Cabbage">Cabbage</option>
+            <option value="Jasmine">Jasmine</option>
+            <option value="Brinjal">Brinjal</option>
+            <option value="Banana">Banana</option>
+            <option value="Cotton">Cotton</option>
+            <option value="Sugarcane">Sugarcane</option>
+            <option value="Beans">Beans</option>
+            <option value="Groundnut">Groundnut</option>
+            <option value="Green gram">Green gram</option>
+            <option value="Turmeric">Turmeric</option>
+            <option value="Carrot">Carrot</option>
+            <option value="Coffee">Coffee</option>
+            <option value="Coconut">Coconut</option>
+            <option value="Drumstick">Drumstick</option>
+            <option value="Millets">Millets</option>
+            <option value="Black gram">Black gram</option>
+
+  </select>
+  
+  <select name="soil_type" required>
+     <option value="" disabled selected>Select Soil Type</option>
+            <option value="Clay">Clay</option>
+            <option value="Red">Red</option>
+            <option value="Sandy">Sandy</option>
+            <option value="Black">Black</option>
+            <option value="Loamy">Loamy</option>
+
+  </select>
+
+  <input type="number" name="moisture" step="0.1" min="0" max="100" required placeholder="Moisture (%)" />
+  <input type="number" name="rainfall" step="0.1" min="0" required placeholder="Rainfall (mm)" />
+  <input type="number" name="temperature" step="0.1" min="-10" max="60" required placeholder="Temperature (°C)" />
+  
+  <button type="submit">Predict Irrigation</button>
+</form>
+
+{% if error %}
+  <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+{% if result %}
+  <h3>Recommended Irrigation Plan:</h3>
+  <p>Method: {{ result.method }}</p>
+  <p>Frequency: {{ result.frequency }}</p>
+  <p>Water Amount: {{ result.water_amount }}</p>
+{% endif %}
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Irrigation Recommendation System</title>
+    <link rel="stylesheet" href="../static/irrigation/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <i class="fa-solid fa-seedling brand-icon"></i>
+                <span>Irrigation</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-section">
+            <h2><i class="fa-solid fa-leaf nav-icon"></i> Irrigation Recommendation System</h2>
+            
+            <form method="POST" action="/irrigation">
+                <div class="input-group">
+                    <label for="crop">Select Crop Type</label>
+                    <select name="crop" id="crop" class="form-control" required>
+                        <option value="" disabled selected>Select Crop</option>
+                        <option value="Pulses">Pulses</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Tomato">Tomato</option>
+                        <option value="Tea">Tea</option>
+                        <option value="Tapioca">Tapioca</option>
+                        <option value="Mango">Mango</option>
+                        <option value="Okra">Okra</option>
+                        <option value="Chili">Chili</option>
+                        <option value="Cabbage">Cabbage</option>
+                        <option value="Jasmine">Jasmine</option>
+                        <option value="Brinjal">Brinjal</option>
+                        <option value="Banana">Banana</option>
+                        <option value="Cotton">Cotton</option>
+                        <option value="Sugarcane">Sugarcane</option>
+                        <option value="Beans">Beans</option>
+                        <option value="Groundnut">Groundnut</option>
+                        <option value="Green gram">Green gram</option>
+                        <option value="Turmeric">Turmeric</option>
+                        <option value="Carrot">Carrot</option>
+                        <option value="Coffee">Coffee</option>
+                        <option value="Coconut">Coconut</option>
+                        <option value="Drumstick">Drumstick</option>
+                        <option value="Millets">Millets</option>
+                        <option value="Black gram">Black gram</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="soil_type">Select Soil Type</label>
+                    <select name="soil_type" id="soil_type" class="form-control" required>
+                        <option value="" disabled selected>Select Soil Type</option>
+                        <option value="Clay">Clay</option>
+                        <option value="Red">Red</option>
+                        <option value="Sandy">Sandy</option>
+                        <option value="Black">Black</option>
+                        <option value="Loamy">Loamy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="moisture">Soil Moisture (%)</label>
+                    <input type="number" name="moisture" id="moisture" class="form-control" 
+                        step="0.1" min="0" max="100" required placeholder="Enter soil moisture percentage" />
+                </div>
+
+                <div class="input-group">
+                    <label for="rainfall">Recent Rainfall (mm)</label>
+                    <input type="number" name="rainfall" id="rainfall" class="form-control" 
+                        step="0.1" min="0" required placeholder="Enter recent rainfall in mm" />
+                </div>
+
+                <div class="input-group">
+                    <label for="temperature">Temperature (°C)</label>
+                    <input type="number" name="temperature" id="temperature" class="form-control" 
+                        step="0.1" min="-10" max="60" required placeholder="Enter current temperature" />
+                </div>
+                
+                <div class="button-group">
+                    <button type="submit" class="next-btn">
+                        Predict Irrigation <i class="fa-solid fa-arrow-right arrow"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="form-section recommendation-card">
+            <div class="card-header">
+                <h2>Recommended Irrigation Plan</h2>
+                <div class="crop-info">
+                    <i class="fa-solid fa-spa crop-icon"></i>
+                    <span>{{ crop }}</span> | <span>{{ soil_type }}</span>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <i class="fa-solid fa-shower icon"></i>
+                <div class="item-content">
+                    <h3>Irrigation Method</h3>
+                    <p>{{ result.method }}</p>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <i class="fa-solid fa-calendar-alt icon"></i>
+                <div class="item-content">
+                    <h3>Watering Frequency</h3>
+                    <p>{{ result.frequency }}</p>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <i class="fa-solid fa-tint icon"></i>
+                <div class="item-content">
+                    <h3>Water Amount</h3>
+                    <p>{{ result.water_amount }}</p>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3><i class="fa-solid fa-lightbulb"></i> Irrigation Tips</h3>
+                <ul>
+                    <li>Water during early morning or late evening to reduce evaporation</li>
+                    <li>Monitor soil moisture regularly and adjust watering as needed</li>
+                    <li>Consider mulching to retain soil moisture</li>
+                    <li>Adjust watering based on rainfall and temperature changes</li>
+                </ul>
+            </div>
+
+            <button class="print-btn">
+                <i class="fa-solid fa-print"></i> Print Recommendation
+            </button>
+        </div>
+        {% endif %}
+    </div>
+
+    
+</body>
+</html>

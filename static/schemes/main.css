@@ -1,0 +1,300 @@
+:root {
+  /* Color System */
+  --color-primary-50: #E8F5E9;
+  --color-primary-100: #C8E6C9;
+  --color-primary-300: #81C784;
+  --color-primary-500: #4CAF50;
+  --color-primary-700: #388E3C;
+  --color-primary-900: #1B5E20;
+  
+  --color-secondary-50: #EFEBE9;
+  --color-secondary-100: #D7CCC8;
+  --color-secondary-300: #A1887F;
+  --color-secondary-500: #795548;
+  --color-secondary-700: #5D4037;
+  --color-secondary-900: #3E2723;
+  
+  --color-accent-500: #FF9800;
+  --color-accent-700: #F57C00;
+  
+  --color-success-500: #4CAF50;
+  --color-warning-500: #FFC107;
+  --color-error-500: #F44336;
+  
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #EEEEEE;
+  --color-neutral-300: #E0E0E0;
+  --color-neutral-500: #9E9E9E;
+  --color-neutral-700: #616161;
+  --color-neutral-900: #212121;
+  
+  /* Spacing System (Based on 8px) */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem;  /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem;    /* 16px */
+  --spacing-5: 1.5rem;  /* 24px */
+  --spacing-6: 2rem;    /* 32px */
+  --spacing-7: 2.5rem;  /* 40px */
+  --spacing-8: 3rem;    /* 48px */
+  
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --line-height-body: 1.5;
+  --line-height-heading: 1.2;
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  
+  /* Box Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height-body);
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-50);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+/* Header Styles */
+header {
+  background-color: var(--color-primary-700);
+  color: var(--color-neutral-0);
+  padding: var(--spacing-4) 0;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+}
+
+.home-btn {
+  color: var(--color-neutral-0);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--border-radius-sm);
+}
+
+.home-btn:hover {
+  color: var(--color-primary-100);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-toggle {
+  background-color: var(--color-neutral-0);
+  color: var(--color-primary-700);
+  border: none;
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-toggle:hover {
+  background-color: var(--color-primary-50);
+}
+
+.btn-toggle:active {
+  transform: scale(0.98);
+}
+
+/* Main Content Styles */
+main {
+  padding-bottom: var(--spacing-8);
+}
+
+.hero {
+  background-color: var(--color-primary-100);
+  padding: var(--spacing-6) 0;
+  margin-bottom: var(--spacing-6);
+}
+
+.page-title {
+  font-size: 2.25rem;
+  color: var(--color-primary-900);
+  margin-bottom: var(--spacing-4);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+}
+
+.intro {
+  font-size: 1.125rem;
+  color: var(--color-neutral-700);
+  max-width: 800px;
+  margin-bottom: var(--spacing-4);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  color: var(--color-primary-900);
+  margin-bottom: var(--spacing-5);
+  font-weight: 600;
+  line-height: var(--line-height-heading);
+}
+
+/* User Profile Card */
+.user-profile {
+  margin-bottom: var(--spacing-6);
+}
+
+.profile-card {
+  background-color: var(--color-neutral-0);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-card h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary-700);
+  margin-bottom: var(--spacing-4);
+  font-weight: 600;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-5);
+}
+
+.profile-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-item .label {
+  color: var(--color-neutral-500);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-1);
+}
+
+.profile-item .value {
+  color: var(--color-neutral-900);
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  border: none;
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-700);
+  color: var(--color-neutral-0);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-900);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-neutral-0);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-secondary-700);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Schemes Section */
+.schemes-section,
+.saved-schemes-section {
+  margin-bottom: var(--spacing-6);
+}
+
+.schemes-container,
+.saved-schemes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-5);
+}
+
+.no-schemes {
+  background-color: var(--color-neutral-0);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-5);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  color: var(--color-neutral-700);
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primary-900);
+  color: var(--color-neutral-0);
+  padding: var(--spacing-5) 0;
+  text-align: center;
+}
+
+/* Language Display Rules */
+html:not([lang="ta"]) .ta {
+  display: none;
+}
+
+html[lang="ta"] .en {
+  display: none;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}

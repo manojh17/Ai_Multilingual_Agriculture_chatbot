@@ -1,0 +1,163 @@
+Crop,Soil Type,Moisture,Rainfall,Temperature,Irrigation Method,Frequency per Week,Water Amount (L/day)
+Pulses,Clay,37.7,111.4,36.4,None (Monitor),0,0
+Rice,Red,30.3,92.6,30.8,Furrow/Alternate Wetting & Drying (AWD),3,350 (adjust based on field observation)
+Tomato,Clay,38.3,274.7,21.6,Drip Irrigation,2-3,2-3
+Rice,Sandy,56.9,73.5,22.3,Alternate Wetting and Drying (AWD),3,2000
+Rice,Clay,49.6,259.9,28.7,Intermittent Flooding,2,5000 (Adjusted)
+Tea,Black,21.8,161.1,36.2,Drip Irrigation,3,2.5
+Tapioca,Clay,59.1,149.6,29.6,Drip Irrigation,1,7.5
+Pulses,Black,45.8,186.6,33.4,Drip,0-1,0-1 (based on monitoring)
+Tapioca,Red,57.5,240.1,20.1,Drip Irrigation,2,8
+Mango,Clay,42.5,176.0,31.5,Drip,0-1,0-15
+Okra,Clay,48.4,287.2,34.1,Drip Irrigation,2,1.5
+Tea,Clay,33.4,268.2,31.4,Drip Irrigation,2-3,1-2
+Tapioca,Red,35.3,145.9,29.4,Drip Irrigation,3,8-12
+Chili,Clay,43.8,191.6,23.6,Drip (Initially None),0,0
+Chili,Clay,43.8,191.6,23.6,Drip (If Needed Later),1-2 (If Needed),0.5 - 1 (If Needed)
+Cabbage,Black,35.0,67.5,21.0,Drip,2,0.8 (per plant)
+Jasmine,Loamy,30.0,162.3,21.9,Drip Irrigation,3,2
+Cabbage,Clay,56.0,161.4,25.7,Drip,0 (Monitor),0 (Monitor)
+Cabbage,Clay,56.0,161.4,25.7,Drip,1 (If Needed),2-3 (If Needed)
+Rice,Loamy,39.8,83.1,20.0,None,0,0
+Brinjal,Black,27.2,286.3,30.7,Drip Irrigation,2-3,1.5-2
+Mango,Black,57.1,77.6,24.3,Drip Irrigation,0,0
+Banana,Clay,33.7,239.4,33.4,Drip,5,15
+Cotton,Clay,50.4,210.8,34.5,Drip Irrigation (recommended),0-1  (Monitor),0-15 (if needed)
+Sugarcane,Red,58.0,226.3,33.3,Drip Irrigation,3,6 - 8
+Beans,Clay,42.1,278.8,30.0,Drip Irrigation,1,2
+Brinjal,Clay,48.6,241.6,31.8,Drip Irrigation,0,0
+Pulses,Sandy,41.2,95.1,29.9,Drip Irrigation,2,1500
+Pulses,Black,33.5,179.9,26.9,Furrow/Drip,1,2000
+Groundnut,Red,43.6,268.3,37.5,Drip,3,10
+Sugarcane,Red,36.1,77.3,31.3,Drip,4,14000
+Tapioca,Loamy,57.5,261.2,22.0,Drip Irrigation,1-2,15-20
+Banana,Sandy,58.5,274.4,22.4,Drip,2,10
+Rice,Sandy,39.7,157.0,30.1,Ponding,4,2500
+Green gram,Black,43.5,117.7,23.6,Drip/Furrow,0 (Monitor),0 (Monitor)
+Jasmine,Clay,50.4,268.9,28.8,Drip Irrigation,2,5
+Pulses,Black,30.0,296.0,30.6,Furrow/Drip,0-1,0 - 5
+Turmeric,Black,26.1,281.9,32.8,Drip Irrigation,1,8 - 10 (adjust based on plant and moisture monitoring)
+Cabbage,Black,26.0,79.6,28.0,Drip Irrigation,3,2 - 4
+Chili,Sandy,53.8,79.4,32.5,Drip Irrigation,3,2
+Mango,Red,38.5,229.9,36.7,Drip Irrigation,2,40
+Groundnut,Loamy,33.7,250.9,31.9,Drip,3,3.5
+Carrot,Red,38.2,158.8,29.7,Drip Irrigation,2,2.5
+Pulses,Black,34.5,190.6,24.5,Furrow/Drip,1,500
+Tea,Clay,55.3,96.9,20.2,Drip Irrigation,2,6-8
+Green Gram,Loamy,28.7,277.3,20.6,Surface,1,800
+Banana,Clay,47.0,61.7,20.0,Drip,2,10.0
+Jasmine,Sandy,37.5,245.8,27.6,Drip Irrigation,2,2-3
+Beans,Black,54.3,125.5,35.5,Drip,2,2
+Coffee,Black,20.7,141.2,29.3,Drip Irrigation,2,10
+Carrot,Sandy,45.9,216.2,22.1,Drip,3,1.0-1.5 (adjust as needed)
+Tomato,Sandy,46.4,235.5,23.7,Drip Irrigation,3,1.25
+Green Gram,Sandy,45.1,136.3,24.6,Sprinkler/Drip,2,10-15
+Coconut,Black,48.4,206.2,21.0,Drip Irrigation,3,40
+Drumstick,Loamy,58.4,256.9,21.9,Drip Irrigation,1,10
+Green gram,Black,56.8,81.7,27.5,*None - Observed*,0,0
+Cabbage,Sandy,24.2,69.3,37.8,Drip Irrigation,4,2-3
+Beans,Black,41.4,164.7,22.4,Drip Irrigation,1-2,1500-2000*
+Banana,Black,45.9,275.4,25.4,Drip,3,6-8
+Green gram,Red,58.8,156.0,20.6,Drip Irrigation,0-1,0-150
+Cabbage,Black,27.8,225.3,25.8,Drip Irrigation,2,1.5
+Tapioca,Black,45.7,135.0,24.3,Drip Irrigation (Optional),0,0
+Coconut,Clay,30.9,189.9,25.8,Drip,2,50
+Pulses,Sandy,47.5,145.1,22.0,Drip Irrigation,3,10
+Tapioca,Black,31.7,191.0,30.6,Drip Irrigation,1-2,15-20
+Chili,Loamy,22.8,260.7,25.5,Drip Irrigation,4,2-3
+Coffee,Loamy,57.2,233.1,28.3,Drip Irrigation,1,20
+Tapioca,Black,21.7,173.7,31.3,Drip Irrigation,2,8-10
+Tapioca,Sandy,55.0,182.8,30.2,Drip Irrigation,3,15
+Millets,Red,22.5,123.7,28.8,Drip,2,30-60
+Pulses,Black,33.1,120.2,27.5,Furrow Irrigation (or Sprinkler if available),1-2,1500-2500
+Carrot,Clay,56.9,172.0,26.0,Drip Irrigation,0,0
+Green gram,Loamy,36.0,261.8,33.1,Monitor Soil Conditions,0,0
+Jasmine,Black,57.4,164.1,33.5,Drip Irrigation,3,2 - 3
+Green Gram,Sandy,35.3,137.0,27.4,Drip Irrigation,2-3,10-15
+Groundnut,Sandy,25.9,292.9,33.3,Drip Irrigation,3-4,10-12
+Turmeric,Red,53.2,79.7,30.7,Drip,3,3.5
+Black gram,Black,53.2,84.8,27.8,Furrow/Sprinkler,0 (Monitor) or 1 (If Needed),0 (Monitor) or 15-20 (If Needed)
+Groundnut,Sandy,22.1,200.9,29.2,Drip Irrigation,2,15
+Carrot,Clay,53.8,60.1,36.7,Drip Irrigation,0-1 (Conditional),0-3 (Conditional)
+Green Gram,Black,45.5,230.1,31.7,Furrow/Drip,0-1,0-25
+Brinjal,Sandy,38.8,108.5,25.8,Drip Irrigation,3-4,2-3
+Coconut,Red,27.9,142.0,32.5,Drip,3,40
+Brinjal,Sandy,41.2,59.8,21.3,Drip Irrigation,3,1.5 - 2
+Pulses,Red,21.5,235.1,30.1,Drip Irrigation,1,5-7
+Carrot,Black,46.4,291.7,36.4,Drip,2,1.75
+Carrot,Sandy,41.0,271.0,32.7,Drip Irrigation,3,1.5
+Okra,Red,52.5,138.4,28.7,Drip,2,0.8
+Banana,Sandy,26.2,177.9,27.8,Drip Irrigation,5-6,10-12
+Cabbage,Clay,42.0,238.5,23.4,Drip,0,0
+Coconut,Loamy,56.5,221.9,26.0,Drip Irrigation,2,40
+Millets,Clay,25.5,50.2,37.1,Drip,2,8-12
+Carrot,Red,39.6,192.9,37.5,Drip,7,2.5 (per meter of Carrot bed length)
+Coffee,Loamy,22.4,163.3,32.4,Drip Irrigation,0,0
+Groundnut,Clay,48.0,184.7,22.0,*None Currently*,0,0
+Green gram,Red,48.7,247.5,24.7,Monitor soil & irrigate if needed,0 (Monitor Closely),0 (Monitor Closely)
+Carrot,Black,40.9,136.0,33.5,Drip,2,1.5
+Millets,Black,34.0,272.8,23.3,Furrow/Drip (if needed),0-1 (monitor closely),0-10 (only if needed)
+Pulses,Sandy,28.6,52.6,23.1,Drip Irrigation,3,300-400
+Banana,Black,29.2,84.0,33.2,Drip,3,8-10
+Coffee,Black,39.6,210.6,30.8,Drip,2,4.5
+Black gram,Red,42.5,151.7,30.8,Sprinkler,2,15
+Okra,Sandy,54.6,126.1,22.1,Drip Irrigation,3,600
+Jasmine,Loamy,57.3,132.2,37.8,Drip Irrigation,3,4
+Turmeric,Clay,55.0,156.2,37.3,Drip Irrigation,2,1.5
+Carrot,Red,42.4,171.5,31.7,Drip,2,2.5
+Mango,Black,35.0,68.4,25.0,Drip,2-3,20-30
+Mango,Red,57.9,209.2,35.6,Drip,7,14
+Brinjal,Clay,21.8,230.0,34.4,Drip,2-3,1.5-2
+Millets,Loamy,47.4,53.4,31.5,Drip/Sprinkler,1,3000
+Cotton,Black,39.6,209.6,35.3,Drip Irrigation,2,12-15
+Banana,Loamy,42.5,256.0,25.0,Drip Irrigation,2,8-10
+Brinjal,Loamy,37.5,94.4,28.3,Drip Irrigation,2,1-2 (adjust per plant size)
+Pulses,Clay,36.3,178.7,29.6,Drip,1,100-120
+Sugarcane,Sandy,27.2,236.3,23.0,Drip Irrigation,3,1000
+Green gram,Loamy,30.5,153.4,35.3,Drip,2,9
+Green gram,Loamy,54.1,68.3,32.7,Drip/Sprinkler,2,15
+Jasmine,Sandy,38.1,300.0,20.8,Drip,3,1.5
+Tomato,Red,45.6,83.6,37.4,Drip Irrigation,5,2-3
+Carrot,Black,58.1,186.2,21.9,Drip,0-2  (Contingent),0-5 (per meter row)
+Green gram,Loamy,30.8,269.4,34.7,Drip irrigation (if needed),0 (Monitor closely),0 (Monitor closely)
+Pulses,Black,22.3,79.5,33.2,Drip Irrigation,2,1800
+Jasmine,Loamy,32.0,219.4,23.1,Drip Irrigation,1-2,1-1.5
+Sugarcane,Red,28.0,189.2,29.0,Furrow Irrigation,2,40
+Rice,Red,38.3,244.7,34.7,Surface Irrigation (Flooding),3,25
+Chili,Red,38.4,81.7,35.5,Drip,4,2.5
+Beans,Loamy,54.3,214.8,26.1,Drip Irrigation,2,2500
+Brinjal,Clay,50.1,212.9,35.4,Drip Irrigation,1-2,0.5-1
+Beans,Black,49.6,209.3,23.1,Drip,0-1,0-2
+Mango,Black,37.1,53.7,37.7,Drip,2,40
+Beans,Loamy,48.7,158.8,34.2,Drip Irrigation,3,4-6
+Cotton,Sandy,51.7,173.1,30.8,Drip Irrigation,3,8-12
+Cabbage,Black,53.9,195.3,35.3,Drip,3,3.5
+Black gram,Clay,23.6,289.8,28.8,Drip / Furrow,0-1 (monitor carefully),0-2 (only if required)
+Banana,Loamy,46.1,65.1,23.1,Drip Irrigation,3,10
+Beans,Loamy,35.5,142.9,36.1,Drip Irrigation,3,15
+Green gram,Sandy,31.5,225.2,33.2,Drip,3,5.5
+Beans,Black,42.2,147.0,27.1,Furrow Irrigation,2,8
+Rice,Sandy,36.2,175.9,36.3,Intermittent Flooding,5,8000
+Sugarcane,Clay,28.2,224.8,25.5,Drip,0.25,5
+Mango,Loamy,30.5,141.0,20.7,Drip Irrigation,3,50
+Tapioca,Red,51.6,106.9,30.7,Drip Irrigation,1,1-2
+Chili,Loamy,37.4,193.5,29.1,Drip Irrigation,2,1.5
+Rice,Loamy,47.5,220.1,37.1,Continuous Flooding / Intermittent Irrigation,2-3,50-60
+Tapioca,Red,37.9,259.0,26.7,Drip Irrigation,0-1,5-10
+Green gram,Clay,59.7,87.9,26.5,Drip (If needed),0 (Initially),0 (Initially)
+Green gram,Clay,Variable,Variable,26.5,Drip (If needed),1 (If needed),357.14 (If needed)
+Millets,Loamy,34.9,265.0,29.5,Furrow,1,18
+Coconut,Sandy,34.4,59.8,29.5,Drip Irrigation,5,40
+Millets,Black,48.8,140.3,24.1,Drip,0 (monitor),0  (monitor)
+Okra,Clay,31.1,254.2,29.2,Drip Irrigation,2,1.5
+Turmeric,Loamy,56.1,142.0,22.2,Drip (If needed),0 - 1 (monitor),0.5 - 1.0  (If needed)
+Tomato,Loamy,24.9,99.4,21.3,Drip,2,1-2
+Groundnut,Black,30.0,265.3,23.5,Furrow/Sprinkler,2,15 - 20
+Coconut,Sandy,56.2,57.3,36.3,Drip Irrigation,4,40-60
+Beans,Clay,53.1,249.2,22.0,Drip Irrigation,0,0
+Carrot,Loamy,38.5,249.2,34.8,Drip Irrigation,2-3,2-3
+Coffee,Clay,52.3,90.8,30.3,Drip Irrigation,2,10
+Pulses,Loamy,58.5,218.2,35.1,Drip Irrigation,1-2 (Monitor),5-7  (per plant)
+Pulses,Clay,21.8,228.8,34.0,Furrow/Drip,1-2,5-7
+Mango,Red,39.7,113.5,25.8,Drip Irrigation,3-4 (Adjusted),20-30 (Mature Tree)
+Sugarcane,Loamy,47.3,76.9,32.3,Drip Irrigation,3,6.5

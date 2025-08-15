@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriGPT Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #2e8b57 50%, #3cb371 100%);
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .welcome-text {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #2e8b57, #3cb371);
+        }
+
+        .section h2 {
+            color: #2e8b57;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section h2 i {
+            font-size: 1.25rem;
+            color: #3cb371;
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .data-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4f8 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2e8b57, #3cb371, #20b2aa);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .data-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 139, 87, 0.15);
+            border-color: #3cb371;
+        }
+
+        .data-box:hover::before {
+            transform: scaleX(1);
+        }
+
+        .data-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-value {
+            display: block;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .status-yes {
+            color: #059669 !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-no {
+            color: #dc2626 !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Special styling for different sections */
+        .profile-section .section-header {
+            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+        }
+
+        .soil-section .section-header {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+
+        .crop-section {
+            border: 2px solid #4ade80;
+            position: relative;
+        }
+
+        .crop-section .section-header {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        }
+
+        .crop-section::before {
+            content: '⭐ RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+
+        .irrigation-section .section-header {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+        }
+
+        .pest-section .section-header {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 20%);
+        }
+
+        .schemes-section .section-header {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+        }
+
+        .highlight {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #dc2626;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-radius: 8px;
+            border: 2px solid #fca5a5;
+        }
+
+        .highlight::before {
+            content: '⚠️';
+            font-size: 1.5rem;
+        }
+
+        .schemes-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .schemes-list li {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #22c55e;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .schemes-list li::before {
+            content: '🏛️';
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .schemes-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.2);
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #2e8b57, #3cb371);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #236b43, #2e8b57);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1><i class="fas fa-seedling"></i> AgriGPT Dashboard</h1>
+            <p class="welcome-text">Welcome, {{ profile.name }} 👨‍🌾</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section profile-section">
+            <div class="section-header">
+                <h2><i class="fas fa-user"></i> Profile Details</h2>
+            </div>
+            <div class="section-content">
+                <div class="data-grid">
+                    <div class="data-box">
+                        <span class="data-label">Age</span>
+                        <span class="data-value">{{ profile.age }} years</span>
+                    </div>
+                    <div class="data-box">
+                        <span class="data-label">Land Owned</span>
+                        <span class="data-value">{{ profile.land_owned }} acres</span>
+                    </div>
+                    <div class="data-box">
+                        <span class="data-label">Community</span>
+                        <span class="data-value">{{ profile.community | upper }}</span>
+                    </div>
+                    <div class="data-box">
+                        <span class="data-label">KCC Holder</span>
+                        <span class="data-value {% if profile.kcc_holder %}status-yes{% else %}status-no{% endif %}">
+                            <i class="fas {% if profile.kcc_holder %}fa-check-circle{% else %}fa-times-circle{% endif %}"></i>
+                            {{ "Yes" if profile.kcc_holder else "No" }}
+                        </span>
+                    </div>
+                    <div class="data-box">
+                        <span class="data-label">Organic Farming</span>
+                        <span class="data-value {% if profile.organic_farming %}status-yes{% else %}status-no{% endif %}">
+                            <i class="fas {% if profile.organic_farming %}fa-check-circle{% else %}fa-times-circle{% endif %}"></i>
+                            {{ "Yes" if profile.organic_farming else "No" }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section soil-section">
+            <div class="section-header">
+                <h2><i class="fas fa-flask"></i> Soil Test Results</h2>
+            </div>
+            <div class="section-content">
+                {% if soil %}
+                    <div class="data-grid">
+                        {% for key, value in soil.items() %}
+                        <div class="data-box">
+                            <span class="data-label">{{ key | capitalize }}</span>
+                            <span class="data-value">{{ value }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="data-box">
+                        <span class="data-value">No soil test data available.</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="section crop-section">
+            <div class="section-header">
+                <h2><i class="fas fa-seedling"></i> Crop Recommendation</h2>
+            </div>
+            <div class="section-content">
+                {% if crop %}
+                    <div class="data-grid">
+                        {% for key, value in crop.items() %}
+                        <div class="data-box">
+                            <span class="data-label">{{ key | capitalize }}</span>
+                            <span class="data-value">{{ value }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="data-box">
+                        <span class="data-value">No crop recommendation available.</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="section irrigation-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tint"></i> Irrigation Information</h2>
+            </div>
+            <div class="section-content">
+                {% if irrigation %}
+                    <div class="data-grid">
+                        {% for key, value in irrigation.items() %}
+                        <div class="data-box">
+                            <span class="data-label">{{ key | capitalize }}</span>
+                            <span class="data-value">{{ value }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="data-box">
+                        <span class="data-value">No irrigation data found.</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="section pest-section">
+            <div class="section-header">
+                <h2><i class="fas fa-bug"></i> Pest Detection Status</h2>
+            </div>
+            <div class="section-content">
+                <div class="data-box">
+                    <span class="data-label">Infestation Percentage</span>
+                    <span class="highlight">{{ pest_percent }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section schemes-section">
+            <div class="section-header">
+                <h2><i class="fas fa-landmark"></i> Recommended Government Schemes</h2>
+            </div>
+            <div class="section-content">
+                {% if schemes %}
+                    <ul class="schemes-list">
+                        {% for scheme in schemes %}
+                            <li>{{ scheme }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="data-box">
+                        <span class="data-value">No recommended schemes found for your profile.</span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "user_id": "farmer1",
+    "password": "manojh",
+    "name": "manojh",
+    "land_owned": 1.0,
+    "organic_farming": true,
+    "kcc_holder": false,
+    "community": "bc"
+}
